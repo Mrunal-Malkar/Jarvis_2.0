@@ -1,0 +1,126 @@
+*{
+  transition: steps(4);
+  transition-duration: 2s;
+  transition-timing-function:cubic-bezier(0.23, 1, 0.320, 1);
+  transition-property: all;
+}
+
+.outermostcontainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: black;
+  overflow: hidden;
+  z-index:1;
+}
+
+#bg-vid{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index:-1;
+}
+
+.sidetextcontainer{
+  height: 100vh;
+  padding:20px;
+  z-index: 1;
+  width: 32vw;
+  display: flex;
+  flex-direction: column;
+  text-shadow: #242322;
+  color:darkturquoise;
+  align-items: start;
+  justify-content: start;
+  background-repeat: no-repeat;
+  background-size: contain;
+  line-break: auto;
+  line-height: 50px;
+}
+
+.outercontainer{
+  display: flex;
+  z-index: 1;
+  min-height: 100vh;
+  min-width: 33vw;
+  justify-content: center;
+  padding-top: 80px;
+  padding-right: 55px;
+  /* background-color: black; */
+  align-items: center;
+  flex-direction: column;
+  order:2;
+}
+
+.jarvispic{
+  min-height: 500px;
+  z-index: 1;
+  min-width: 500px;
+  border: 2px solid #242322;
+  border-radius: 50%;
+  background-image:url("./../public/giphy.gif");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+.jarvisName{
+  z-index: 1;
+  font-size:50px;
+  font-family: monospace;
+  font-weight: 600;
+  font-style:oblique;
+  color:cornflowerblue;
+}
+
+.buttonouter{
+  z-index: 1;
+  margin-top: 30px;
+}
+
+.askbutton{
+  padding: 15px;
+  z-index: 1;
+  border-color: #242322;
+  border-color: aqua;
+  outline-color: #242322;
+  font-size:20px;
+  color:white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 10px;
+  background-color: #242322;
+}
+
+.askbutton:hover{
+  scale:1.1;
+  z-index: 1;
+}
+
+.askbutton:active{
+  scale:1.2;
+  z-index: 1;
+}
+
+.hide{
+  display:none;
+}
+
+.ans{
+  z-index: 2;
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: 500;
+}
+
+.que{
+  z-index: 2;
+  font-size: 40px;
+  font-family: monospace;
+  font-weight: 700;
+}
