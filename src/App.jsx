@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Groq from 'groq-sdk'
 
@@ -13,15 +13,20 @@ function App() {
 
     const speech = new SpeechSynthesisUtterance(message);
     speech.lang = "en-US";
-    speech.rate = 0.8;
-    speech.pitch = 0.8;
+    speech.rate = 1;
+    speech.pitch =0.8;
 
     window.speechSynthesis.speak(speech);
+    setTimeout(()=>setMicOn(false),[20000])
   };
 
   const handleRecognition = () => {
+    if (micOn) {
+      return;
+    }
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
     recognition.lang = "en-US";
+    setMicOn(true);
     recognition.interimResults = false;
 
     // Ensure ref is not null before modifying
@@ -109,7 +114,10 @@ function App() {
 
     <div className={text?"sidetextcontainer":"sidetextcontainer"}>
       
-  <video id="bg-vid" autoPlay loop muted type="video/mp4" src="./../public/jarvis.mp4"></video>
+    {micOn ? 
+  <video id="bg-vid" autoPlay muted loop type="video/mp4" preload="auto" src="/jarvis.mp4"></video> :
+  <video id="bg-vid" autoPlay loop type="video/mp4" preload="auto" src="/jarvis.mp4"></video>
+}
 
       <div className="sidetext">
         <h1 className="que">{question}</h1>
